@@ -13,10 +13,16 @@ namespace FindUnsavedModifiedFiles
     {
         static void Main(string[] args)
         {
+            if (args.Length != 1)
+                return;
+
             MessageFilter.Register();
+            
+            var solutionName = args[0];
 
             List<DTE2> dte2s = DTEUtil.GetDTEs();
-            foreach (var dte2 in dte2s)
+            
+            foreach (var dte2 in dte2s.Where(dte => dte.Solution.FullName.Contains(solutionName)))
             {
                 var solution = dte2.Solution;
                 var stringBuilder = new StringBuilder();
@@ -30,7 +36,6 @@ namespace FindUnsavedModifiedFiles
 
                 solution.Projects.OfType<Project>()
                     .SelectMany(p => p.ProjectItems.OfType<ProjectItem>())
-                    .Where(pi => !pi.Name.EndsWith("testsettings"))
                     .Where(pi => !pi.Saved)
                     .ToList().ForEach(pi => stringBuilder.AppendLine(Format(pi.Name)));
 
@@ -40,7 +45,6 @@ namespace FindUnsavedModifiedFiles
 
             }
 
-            Console.ReadLine();
             MessageFilter.Revoke();
         }
 
