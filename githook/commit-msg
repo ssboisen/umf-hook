@@ -1,0 +1,25 @@
+#!/bin/sh
+
+solution_file=""
+githooksdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+if [ -z "$solution_file" ]; then
+   
+   repo_root=$(dirname $(dirname $githooksdir))
+   solution_file=$(ls | grep --ignore-case .sln)
+   if [ -z "$solution_file" -a -d "$repo_root/src" ]; then
+   	solution_file=$(ls src/ | grep --ignore-case .sln)
+   fi
+
+   if [ -z "$solution_file" ]; then
+	echo "Could not find solution-file"
+	exit 1
+   fi
+fi
+
+output=$($githooksdir/umf-hook.exe $solution_file)
+
+if [ -n "$output" ]; then
+   echo "You have unsaved modified files in your solution-file $solution_file"
+   echo "$output"
+   exit 1
+fi
