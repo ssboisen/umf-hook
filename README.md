@@ -12,4 +12,4 @@ Build and copy umf-hook.exe and pre-commit to your .git/hooks folder and optiona
 
 Acknowledgment
 --------------
-Thanks to adabyron from Stack Overflow for the initial Visual Studio extensibility solution: http://stackoverflow.com/questions/4724381/get-the-reference-of-the-dte2-object-in-visual-c-sharp-2010
+Thanks to adabyron from Stack Overflow for the initial Visual Studio extensibility solution: http://stackoverflow.com/a/13034842/359137
