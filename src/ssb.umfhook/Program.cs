@@ -7,7 +7,7 @@ using System.Text;
 using EnvDTE;
 using EnvDTE80;
 
-namespace FindUnsavedModifiedFiles
+namespace ssb.umfhook
 {
     class Program
     {

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using EnvDTE80;
 
-namespace FindUnsavedModifiedFiles
+namespace ssb.umfhook
 {
     internal class DTEUtil
     {

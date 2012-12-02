@@ -7,8 +7,8 @@
     <ProjectGuid>{9C61602B-CE2E-4A82-8F2F-04112591B6EF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FindUnsavedModifiedFiles</RootNamespace>
-    <AssemblyName>FindUnsavedModifiedFiles</AssemblyName>
+    <RootNamespace>ssb.umfhook</RootNamespace>
+    <AssemblyName>umf-hook</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

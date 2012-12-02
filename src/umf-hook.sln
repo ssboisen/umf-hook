@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindUnsavedModifiedFiles", "FindUnsavedModifiedFiles\FindUnsavedModifiedFiles.csproj", "{9C61602B-CE2E-4A82-8F2F-04112591B6EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ssb.umfhook", "ssb.umfhook\ssb.umfhook.csproj", "{9C61602B-CE2E-4A82-8F2F-04112591B6EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace FindUnsavedModifiedFiles
+namespace ssb.umfhook
 {
     /// <summary>
     /// Class containing the IOleMessageFilter
