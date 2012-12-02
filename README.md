@@ -7,7 +7,7 @@ umf-hook is a small C# application and Git pre-commit hook that ensure that you 
 
 Installation
 ------------
-Build and copy umf-hook.exe and commit-msg to your .githooks folder and optionally assign a solution file-name by editing the commit-msg file. If no solution is assigned umf-hook will look in repo-root and repo-root/src for a file ending in .sln
+Build and copy umf-hook.exe and commit-msg to your .git/hooks folder and optionally assign a solution file-name by editing the commit-msg file. If no solution is assigned umf-hook will look in repo-root and repo-root/src for a file ending in .sln
 
 
 Acknowledgment
