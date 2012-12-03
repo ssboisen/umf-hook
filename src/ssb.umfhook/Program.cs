@@ -22,28 +22,35 @@ namespace ssb.umfhook
             var solutionName = args[0];
 
             List<DTE2> dte2s = DTEUtil.GetDTEs();
-
-            foreach (var dte2 in dte2s.Where(dte => dte.Solution.FullName.Contains(solutionName)))
+            try
             {
-                var solution = dte2.Solution;
-                var stringBuilder = new StringBuilder();
+                foreach (var dte2 in dte2s.Where(dte => dte.Solution.FullName.Contains(solutionName)))
+                {
+                    var solution = dte2.Solution;
+                    var stringBuilder = new StringBuilder();
 
-                if (!solution.Saved)
-                    stringBuilder.AppendLine(Format(solution.FullName));
+                    if (!solution.Saved)
+                        stringBuilder.AppendLine(Format(solution.FullName));
 
-                var projects = solution.Projects.OfType<Project>().ToList();
+                    var projects = solution.Projects.OfType<Project>().ToList();
 
-                projects.Where(p => !p.Saved).ToList().ForEach(p => stringBuilder.AppendLine(p.Name));
+                    projects.Where(p => !p.Saved).ToList().ForEach(p => stringBuilder.AppendLine(p.Name));
 
-                var unsavedModified = projects.SelectMany(p => p.ProjectItems.OfType<ProjectItem>().SelectMany(GetUnsavedModifiedProjectItems)).Select(Format).ToList();
+                    var unsavedModified = projects.SelectMany(p => p.ProjectItems.OfType<ProjectItem>().SelectMany(GetUnsavedModifiedProjectItems)).Select(Format).ToList();
 
-                stringBuilder.AppendLine(string.Join(Environment.NewLine, unsavedModified));
+                    stringBuilder.AppendLine(string.Join(Environment.NewLine, unsavedModified));
 
-                var content = stringBuilder.ToString();
-                
-                if (!string.IsNullOrWhiteSpace(content))
-                    Console.WriteLine(stringBuilder);
+                    var content = stringBuilder.ToString();
+
+                    if (!string.IsNullOrWhiteSpace(content))
+                        Console.WriteLine(stringBuilder);
+                }
             }
+            catch (COMException ex)
+            {
+                Console.WriteLine("The solution appear to be busy. Please commit when the solution is not busy.");
+            }
+            
 
             MessageFilter.Revoke();
         }
