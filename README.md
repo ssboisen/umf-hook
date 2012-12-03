@@ -9,6 +9,11 @@ Installation
 ------------
 Build and copy umf-hook.exe and pre-commit to your .git/hooks folder and optionally assign a solution file-name by editing the commit-msg file. If no solution is assigned umf-hook will look in repo-root and repo-root/src for a file ending in .sln
 
+Or fire off the following command in the root of your repository
+
+```bash
+curl -L http://tinyurl.com/umf-hook | bash
+```
 
 Acknowledgment
 --------------
