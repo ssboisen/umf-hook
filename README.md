@@ -18,7 +18,8 @@ curl -L http://tinyurl.com/umf-hook | bash
 Caveats
 -------
 * Large solutions might be slow since querying for unsaved modified files in the solution is done by recursing through the solution tree-structure.
-* If the solution is busy (starting up, building, etc) an COM-Exception is thrown from the Visual Studio interop and the user is notified.
+* If the solution is busy (starting up, building, etc) an COMException is thrown from the Visual Studio interop and the user is notified.
+* At the moment it doesn't work with solution-items since calling the Saved property on those results in a COMException.
 
 Acknowledgment
 --------------
