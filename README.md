@@ -15,6 +15,11 @@ Or fire off the following command in the root of your repository
 curl -L http://tinyurl.com/umf-hook | bash
 ```
 
+Caveats
+-------
+* Large solutions might be slow since querying for unsaved modified files in the solution is done by recursing through the solution tree-structure.
+* If the solution is busy (starting up, building, etc) an COM-Exception is thrown from the Visual Studio interop and the user is notified.
+
 Acknowledgment
 --------------
 Thanks to adabyron from Stack Overflow for the initial Visual Studio extensibility solution: http://stackoverflow.com/a/13034842/359137
