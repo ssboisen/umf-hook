@@ -12,7 +12,7 @@ Build and copy umf-hook.exe and pre-commit to your .git/hooks folder and optiona
 Or fire off the following command in the root of your repository
 
 ```bash
-curl -L http://tinyurl.com/umf-hook | bash
+curl -s -L http://tinyurl.com/umf-hook | bash
 ```
 
 Caveats
